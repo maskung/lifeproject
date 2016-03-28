@@ -29,10 +29,12 @@ class Home extends CI_Controller {
 		$data['title'] = "บันทึการเฝ้าเดี่ยวแห่งคริสตจักรพันธสัญญากรุงเทพ";
 
         //check user logged in or not
-        $this->Auth_model->isLoggedIn();
+        //$this->Auth_model->isLoggedIn();
 	    $week = $this->Week->getWeek();
 		$data['week'] = $week; 
-		$this->load->view('home',$data);
+		//$this->load->view('home',$data);
+        
+        $this->load->view('addstudent',$data);
         
 	}
 
