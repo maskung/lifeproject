@@ -8,7 +8,8 @@ class Home_model extends CI_Model {
         //$this->db->order_by("id", "desc"); 
         //$data = $this->db->get('curd');
 
-		$sql = "SELECT * FROM `curd` WHERE `created` >= '".$datestart."' + INTERVAL ".$interval." DAY AND `created` <= '".$dateend."' + INTERVAL ".$interval." DAY AND `email` = '".$this->session->userdata('groupname')."' ORDER BY `id` DESC"; 
+		//$sql = "SELECT * FROM `curd` WHERE `created` >= '".$datestart."' + INTERVAL ".$interval." DAY AND `created` <= '".$dateend."' + INTERVAL ".$interval." DAY AND `email` = '".$this->session->userdata('groupname')."' ORDER BY `id` DESC"; 
+		$sql = "SELECT * FROM `curd` WHERE `email` = '".$this->session->userdata('groupname')."' ORDER BY `id` DESC"; 
 		$data = $this->db->query($sql);
 
         foreach ($data->result() as $row){

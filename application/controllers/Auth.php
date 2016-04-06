@@ -31,6 +31,7 @@ class Auth extends CI_Controller {
              
             //call the model for auth
             if($this->Auth_model->login($username, $password)){
+				redirect('/home' ,'refresh');
             }
             else{
                 echo'something went wrong';

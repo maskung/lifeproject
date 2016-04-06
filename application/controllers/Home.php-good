@@ -19,30 +19,23 @@ class Home extends CI_Controller {
         $this->load->Model('Auth_model');
         $this->load->Model('Week');
         $this->load->Model('People');
+        $this->load->Model('Prize');
 		
 	}
 	/**
  	 * index page show on default
      */
 	public function index() {
-		$data['title'] = "หน้าหลัก";
+		$data['title'] = "บันทึการเฝ้าเดี่ยวแห่งคริสตจักรพันธสัญญากรุงเทพ";
 
         //check user logged in or not
-        $this->Auth_model->isLoggedIn();
-		//$this->load->view('login',$data);
+        //$this->Auth_model->isLoggedIn();
+	    $week = $this->Week->getWeek();
+		$data['week'] = $week; 
+		//$this->load->view('home',$data);
         
-        $this->load->view('header',$data);
-        $this->load->view('dashboard',$data);
-        $this->load->view('footer',$data);
+        $this->load->view('addstudent',$data);
         
-	}
-
-	public function servey() {
-		$data['title'] = "สำรวจความพึงพอใจ";
-
-        $this->load->view('header',$data);
-        $this->load->view('serveyform',$data);
-        $this->load->view('footer',$data);
 	}
 
         public function fillgrid(){
@@ -105,6 +98,68 @@ class Home extends CI_Controller {
             exit;
         }
 
+		public function fortune() {
+
+			// find current week  id
+			$week = $this->Week->getWeek();
+
+			// get days of last 
+			$lastweek = $this->Week->getWeekByID($week->week_id-1);
+			$data['week'] = $lastweek; 
+
+			//get people who already get prize in this week
+			$peoplewon = $this->Prize->getWeekPrize();
+			$data['peoplewons'] = $peoplewon;
+
+			//make string exception for prize
+			$exceptids = "";
+			$lastarray = end($peoplewon);
+			foreach ($peoplewon as $peoplew) {
+
+				$exceptids .= $peoplew->id;
+			    if ($lastarray->id != $peoplew->id) {
+					$exceptids .= ",";
+				} 
+			}
+
+			//$data['people'] = $this->People->getPrizeByWeek('2016-02-28', '2016-03-04');
+			$won = $this->People->getPrizeByWeek($lastweek->week_start, $lastweek->week_end, 0, $exceptids);
+			$data['people'] = $won;
+			//do_dump($data['peoples']);
+			// insert people to prize hall
+			$this->Prize->recordPrize($won->id, $won->name, $won->email);
+
+			
+			$this->load->view('prize',$data);
+
+		}
+
+		public function p() {
+
+			// find current week  id
+			$week = $this->Week->getWeek();
+
+			//get people who already get prize in this week
+			$peoplewon = $this->Prize->getWeekPrize();
+			$data['peoplewons'] = $peoplewon;
+
+			// get days of last 
+			$lastweek = $this->Week->getWeekByID($week->week_id-1);
+			$data['week'] = $lastweek; 
+
+			$data['weekcounts'] = $this->People->countGroupByWeek($lastweek->week_start, $lastweek->week_end, 0 );
+			//find amount of people in week by group	
+
+			$this->load->view('preprize',$data);
+		}
+
+		public function clear() {
+
+			$this->Prize->clearPrize();
+
+			$this->p();
+
+		}
          
        			
 }
