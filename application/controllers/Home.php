@@ -14,6 +14,7 @@ class Home extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+        // Load all needed model
         $this->load->model('home_model');
         $this->load->library('form_validation');
         $this->load->Model('Auth_model');
@@ -37,11 +38,25 @@ class Home extends CI_Controller {
         
 	}
 
+    /**
+     * servey - show servey form 
+     */
 	public function servey() {
 		$data['title'] = "สำรวจความพึงพอใจ";
 
         $this->load->view('header',$data);
         $this->load->view('serveyform',$data);
+        $this->load->view('footer',$data);
+	}
+
+    /**
+     * courselist - show list of student in multi table
+     */
+	public function courselist() {
+		$data['title'] = "สำรวจความพึงพอใจ";
+
+        $this->load->view('header',$data);
+        $this->load->view('courselist',$data);
         $this->load->view('footer',$data);
 	}
 

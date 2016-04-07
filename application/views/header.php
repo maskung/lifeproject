@@ -293,7 +293,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> สรุปรายชื่อผู้เข้าเรียน</a>
+                            <a href="/home/courselist"><i class="fa fa-table fa-fw"></i> สรุปรายชื่อผู้เข้าเรียน</a>
                         </li>
                         <li>
                             <a href="/home/servey"><i class="fa fa-edit fa-fw"></i> แบบสำรวจ</a>
