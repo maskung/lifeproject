@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row">
         <div class="text-center">
-        <h3>Life Sharing : Convenant Covenant Camp 2016</h3>
+        <h3>Life Sharing : Covenant Camp 2016</h3>
         </div>
         </div>
         <div class="row">
