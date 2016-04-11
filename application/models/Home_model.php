@@ -9,7 +9,7 @@ class Home_model extends CI_Model {
         //$data = $this->db->get('curd');
 
 		//$sql = "SELECT * FROM `curd` WHERE `created` >= '".$datestart."' + INTERVAL ".$interval." DAY AND `created` <= '".$dateend."' + INTERVAL ".$interval." DAY AND `email` = '".$this->session->userdata('groupname')."' ORDER BY `id` DESC"; 
-		$sql = "SELECT * FROM `curd` WHERE `email` = '".$this->session->userdata('groupname')."' ORDER BY `id` DESC"; 
+		$sql = "SELECT * FROM `curd` LEFT JOIN church USING (church_id) WHERE `email` = '".$this->session->userdata('groupname')."' ORDER BY `id` DESC"; 
 		$data = $this->db->query($sql);
 
         foreach ($data->result() as $row){
@@ -18,7 +18,7 @@ class Home_model extends CI_Model {
             echo "<tr>
                         <td>$row->id</td>
                         <td class=\"text-left\">$row->name</td>
-                        <td class=\"text-left\">$row->email</td>
+                        <td class=\"text-left\">$row->church_name</td>
                         <td>$row->created</td>
                         <td><a href='$edit' data-id='$row->id' class='btnedit' title='edit'><i class='glyphicon glyphicon-pencil' title='edit'></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='$delete' data-id='$row->id' class='btndelete' title='delete'><i class='glyphicon glyphicon-remove'></i></a></td>    
                     </tr>";
@@ -33,6 +33,7 @@ class Home_model extends CI_Model {
                 'contact'=> '',
                 'facebook_link'=>'',
                 'course_id'=>$this->input->post('courseid'),
+                'church_id'=>$this->input->post('church'),
                 'created'=>date('Y-m-d'));
             $this->db->insert('curd', $data);
             echo'<div class="alert alert-success">ข้อมูลถูกบันทึกเรียบร้อยแล้ว</div>';
@@ -44,7 +45,10 @@ class Home_model extends CI_Model {
      */
 
     public function getAllStudent() {
-        return $this->db->get('curd')->result();
+        //return $this->db->get('curd')->result();
+        $sql = "SELECT * FROM `curd` LEFT JOIN church USING (church_id)";
+		$data = $this->db->query($sql);
+        return $data->result();
     }
      
 }

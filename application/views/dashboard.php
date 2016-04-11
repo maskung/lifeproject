@@ -3,7 +3,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">กรุณากรอกชื่อผู้สมัครเรียน</h1>
+                    <h3 class="page-header">กรุณากรอกชื่อผู้สมัครเรียนวิชา <span class="text-primary"><?php echo $course->topic; ?></span> (<?php echo $course->teacher; ?>)</h3>
                     </div>
 					<div id="response"></div>
 
@@ -13,12 +13,23 @@
 							<label class="sr-only" for="exampleInputEmail2">Full name</label>
 							<input type="text" name="name" class="form-control" id="exampleInputEmail2" placeholder="ชื่อ">
 						</div>
+                        <div class="form-group">
+							<label class="sr-only" for="church">คริสตจักร</label>
+                            <select class="form-control" name="church">
+                                <option value="">โปรดเลือกคริสตจักร</option>
+                                <?php foreach($churches as $church) { ?>
+                                    <option value="<?php echo $church->church_id; ?>"><?php echo $church->church_name; ?></option>
+                                <?php } ?>
+                                
+                            </select>
+                        </div>
 						<div class="form-group">
 							<div class="input-group">
 								<div class="input-group-addon">@</div>
 								<input class="form-control" name="email" type="text" placeholder="กลุ่ม" value="<?php echo $this->session->userdata('groupname'); ?>" readonly="true">
 							</div>
 						</div>
+        
 						<!--div class="form-group">
 							<label class="sr-only" for="exampleInputPassword2">Contact</label>
 							<input type="text" class="form-control" name="contact" id="exampleInputPassword2" placeholder="contact number">
@@ -35,7 +46,7 @@
 				</div>
 		 
 				<table class="table">
-					<thead><tr><th>ID</th><th>ชื่อ-นามสกุล</th><th>รายวิชา</th><th>วันที่</th><th>กำเนินการ</th></tr></thead>
+					<thead><tr><th>ID</th><th>ชื่อ-นามสกุล</th><th>คริสตจักร</th><th>วันที่</th><th>กำเนินการ</th></tr></thead>
 					<tbody id="fillgrid">
 					 
 					</tbody>

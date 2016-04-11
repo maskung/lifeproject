@@ -21,6 +21,7 @@ class Home extends CI_Controller {
         $this->load->Model('Week');
         $this->load->Model('People');
         $this->load->Model('Groups');
+        $this->load->Model('Church');
 		
 	}
 	/**
@@ -32,7 +33,11 @@ class Home extends CI_Controller {
         //check user logged in or not
         $this->Auth_model->isLoggedIn();
 		//$this->load->view('login',$data);
-        
+
+        //get all chruch
+        $data['churches'] = $this->Church->getChurches();
+        $data['course'] = $this->Groups->getGroupByID($this->session->userdata('course_id')); 
+
         $this->load->view('header',$data);
         $this->load->view('dashboard',$data);
         $this->load->view('footer',$data);
@@ -64,6 +69,9 @@ class Home extends CI_Controller {
         
         foreach ($allgroups as $group) {
             $allcourse[$group->group_id] = array('course_name' => $group->group_name,
+                                                 'teacher' => $group->teacher,
+                                                 'church' => $group->church,
+                                                 'topic' => $group->topic,
                                                  'students' => array()
                     );
         }

@@ -11,7 +11,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                        <?php echo $course['course_name']; ?>
+                        <strong><?php echo $course['course_name']; ?></strong> สอนโดย <?php echo $course['teacher']==""?"?":$course['teacher']; ?> (<?php echo $course['church']==""?"?":$course['church']; ?>) - <span class="text-primary"><?php echo $course['topic']; ?></span>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -21,7 +21,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>ชื่อ - สกุล</th>
-                                            <th>ห้อง</th>
+                                            <th>คริสตจักร</th>
                                             <th>วันที่บันทึก</th>
                                         </tr>
                                     </thead>
@@ -33,7 +33,7 @@
                                         <tr>
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $student->name; ?></td>
-                                            <td><?php echo $student->email; ?></td>
+                                            <td><?php echo $student->church_name; ?></td>
                                             <td><?php echo $student->created; ?></td>
                                         </tr>
                                         <?php $i++; } ?>
