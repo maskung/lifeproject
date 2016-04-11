@@ -37,14 +37,14 @@
     <div class="container">
         <div class="row">
         <div class="text-center">
-        <h1>Life Sharing : Convenant Covenant Camp 2016</h1>
+        <h3>Life Sharing : Convenant Covenant Camp 2016</h3>
         </div>
         </div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">โปรดล็อกอินเข้าสู่ระบบ</h3>
+                        <h2 class="panel-title">โปรดล็อกอินเข้าสู่ระบบ</h2>
                     </div>
                     <div class="panel-body">
                         <form role="form" id="frm_login" action="<?php echo base_url(); ?>auth/login" method="POST">
