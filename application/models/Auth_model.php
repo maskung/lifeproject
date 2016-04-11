@@ -14,6 +14,7 @@ class Auth_model extends CI_Model {
                 $data = array(
                             'username'=> $row->username,
                             'groupname'=> $row->group_name,
+                            'course_id'=> $row->course_id,
                             'logged_in'=>TRUE
                         );
             }

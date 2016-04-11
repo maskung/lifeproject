@@ -28,6 +28,7 @@
 							<input type="text" name="facebook" class="form-control" id="exampleInputPassword2" placeholder="http://facebook.com/pariharvikram1989">
 						</div-->
 						<div class="form-group">
+							<input class="form-control" name="courseid" type="hidden" value="<?php echo $this->session->userdata('course_id'); ?>" >
 							<input type="submit" class="btn btn-success" id="exampleInputPassword2" value="เพิ่มรายชื่อ">
 						</div>
 					</form>

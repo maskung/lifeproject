@@ -32,6 +32,7 @@ class Home_model extends CI_Model {
                 'email'=>$this->input->post('email'),
                 'contact'=> '',
                 'facebook_link'=>'',
+                'course_id'=>$this->input->post('courseid'),
                 'created'=>date('Y-m-d'));
             $this->db->insert('curd', $data);
             echo'<div class="alert alert-success">ข้อมูลถูกบันทึกเรียบร้อยแล้ว</div>';
