@@ -20,6 +20,7 @@ class Home extends CI_Controller {
         $this->load->Model('Auth_model');
         $this->load->Model('Week');
         $this->load->Model('People');
+        $this->load->Model('Groups');
 		
 	}
 	/**
@@ -53,7 +54,32 @@ class Home extends CI_Controller {
      * courselist - show list of student in multi table
      */
 	public function courselist() {
-		$data['title'] = "สำรวจความพึงพอใจ";
+		$data['title'] = "รายชื่อนักเรียน";
+
+        //get all groups
+        $allgroups = $this->Groups->getGroups(); 
+
+        // add to student to courses
+        $allcourse = array();
+        
+        foreach ($allgroups as $group) {
+            $allcourse[$group->group_id] = array('course_name' => $group->group_name,
+                                                 'students' => array()
+                    );
+        }
+        
+
+        $allstudents = $this->home_model->getAllStudent(); 
+
+        foreach ($allstudents as $student) {
+            $allcourse[$student->course_id]['students'][] = $student;
+        }
+
+        //do_dump($allstudents,'allstudents');
+
+        //do_dump($allcourse,'allcourse');
+
+        $data['allcourses'] = $allcourse;
 
         $this->load->view('header',$data);
         $this->load->view('courselist',$data);
@@ -61,9 +87,7 @@ class Home extends CI_Controller {
 	}
 
         public function fillgrid(){
-		    $week = $this->Week->getWeek();
-			$data['week'] = $week; 
-            $this->home_model->fillgrid($week->week_start,$week->week_end);
+            $this->home_model->fillgrid();
         }
  
  

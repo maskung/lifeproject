@@ -2,7 +2,7 @@
  
 class Home_model extends CI_Model {
      
-    public function fillgrid($datestart, $dateend, $interval = 0){
+    public function fillgrid(){
 		//$array = array('created >=' => $startdate+$interval, 'created <=' => $enddate+$interval, 'email' => $this->session->userdata('groupname'));
 		//$this->db->where($array); 
         //$this->db->order_by("id", "desc"); 
@@ -37,6 +37,14 @@ class Home_model extends CI_Model {
             $this->db->insert('curd', $data);
             echo'<div class="alert alert-success">ข้อมูลถูกบันทึกเรียบร้อยแล้ว</div>';
             exit;
+    }
+
+    /**
+     * getAllStudent - get all student
+     */
+
+    public function getAllStudent() {
+        return $this->db->get('curd')->result();
     }
      
 }

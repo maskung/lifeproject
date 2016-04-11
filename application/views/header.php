@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Life Projet</a>
+                <a class="navbar-brand" href="/">Life Project</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -249,7 +249,7 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php echo $this->session->userdata('username'); ?></a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
@@ -278,7 +278,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> ภาพรวม</a>
+                            <a href="/home/index"><i class="fa fa-pencil-square fa-fw"></i> กรอกข้อมูลผู้เรียน</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> รายงานการประเมิน<span class="fa arrow"></span></a>
