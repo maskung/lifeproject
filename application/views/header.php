@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Life Project</a>
+                <a class="navbar-brand" href="/">Life Sharing : Covenant Camp 2016</a>
             </div>
             <!-- /.navbar-header -->
 
