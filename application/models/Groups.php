@@ -12,7 +12,7 @@ class Groups extends CI_Model {
 	 */ 
 	function getGroups() {
 
-		$sql = "SELECT * FROM groups";
+		$sql = "SELECT * FROM groups WHERE del_flg = 0";
 		
         $data = $this->db->query($sql);
 

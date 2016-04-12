@@ -62,7 +62,7 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <!--a href="index.html" class="btn btn-lg btn-success btn-block">Login</a-->
-								<input type="submit" class="btn btn-lg btn-success btn-block" value="submit">
+								<input type="submit" class="btn btn-lg btn-success btn-block" value="เข้าสู่ระบบ">
                             </fieldset>
                         </form>
                     </div>
