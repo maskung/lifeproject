@@ -38,6 +38,10 @@ class Home extends CI_Controller {
         $data['churches'] = $this->Church->getChurches();
         $data['course'] = $this->Groups->getGroupByID($this->session->userdata('course_id')); 
 
+		//count amount of people who register this subject
+		$amount	= $this->home_model->countPeopleRegist($this->session->userdata('course_id')); 
+        $data['amount'] = $amount->amount;
+
         $this->load->view('header',$data);
         $this->load->view('dashboard',$data);
         $this->load->view('footer',$data);

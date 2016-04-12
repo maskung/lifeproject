@@ -20,7 +20,7 @@ class Home_model extends CI_Model {
                         <td class=\"text-left\">$row->name</td>
                         <td class=\"text-left\">$row->church_name</td>
                         <td>$row->created</td>
-                        <td><a href='$edit' data-id='$row->id' class='btnedit' title='edit'><i class='glyphicon glyphicon-pencil' title='edit'></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='$delete' data-id='$row->id' class='btndelete' title='delete'><i class='glyphicon glyphicon-remove'></i></a></td>    
+                        <td><!--a href='$edit' data-id='$row->id' class='btnedit' title='edit'><i class='glyphicon glyphicon-pencil' title='edit'></i></a-->&nbsp;&nbsp;&nbsp;&nbsp;<a href='$delete' data-id='$row->id' class='btndelete' title='delete'><i class='glyphicon glyphicon-remove'></i></a></td>    
                     </tr>";
              
         }
@@ -50,6 +50,12 @@ class Home_model extends CI_Model {
 		$data = $this->db->query($sql);
         return $data->result();
     }
+
+	public function  countPeopleRegist($id) {
+		$sql = "SELECT COUNT(*) as amount FROM `curd` WHERE course_id = ".$id;  
+		$data = $this->db->query($sql);
+        return $data->row();
+	}
      
 }
  
