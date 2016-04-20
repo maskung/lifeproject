@@ -62,7 +62,7 @@ $(function() {
     var data = [
     <?php foreach ($amountbychurch as $value) { ?>
     {
-        label: "<?php echo $value->church_name; ?>",
+        label: "<?php echo $value->church_name==""?"ไม่ทราบ":$value->chruch_name; ?>",
         data: <?php echo $value->amount; ?>
     },
        
