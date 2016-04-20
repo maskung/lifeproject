@@ -107,7 +107,6 @@ class Home extends CI_Controller {
 
         $data['amountbychurch'] = $this->home_model->countByChurch(); 
 
-        do_dump($data['amountbychurch']);
         $this->load->view('header',$data);
         $this->load->view('proportion',$data);
         $this->load->view('footer',$data);
