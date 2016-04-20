@@ -30,6 +30,15 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- jQuery -->
+    <script src="/assets/js/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/assets/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/assets/js/metisMenu.min.js"></script>
+
 	<link href="http://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.33/example1/colorbox.min.css" rel="stylesheet"/>
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"/>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.4.33/jquery.colorbox-min.js"></script>
@@ -187,7 +196,7 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> รายงานการประเมิน<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Flot Charts</a>
+                                    <a href="/home/proportion">สัดส่วนผู้เรียน</a>
                                 </li>
                                 <li>
                                     <a href="morris.html">Morris.js Charts</a>

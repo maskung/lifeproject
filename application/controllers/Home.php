@@ -98,6 +98,23 @@ class Home extends CI_Controller {
         $this->load->view('footer',$data);
 	}
 
+    /**
+     * proportion - show proportion by church
+     */
+	public function proportion() {
+		$data['title'] = "จำนวนนักเรียนแยกตามคริสตจักร";
+
+
+        $data['amountbychurch'] = $this->home_model->countByChurch(); 
+
+        $this->load->view('header',$data);
+        $this->load->view('proportion',$data);
+        $this->load->view('footer',$data);
+
+
+
+    }
+
         public function fillgrid(){
             $this->home_model->fillgrid();
         }

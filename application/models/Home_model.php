@@ -56,6 +56,15 @@ class Home_model extends CI_Model {
 		$data = $this->db->query($sql);
         return $data->row();
 	}
+
+    public function countByChurch() {
+
+        $sql = "SELECT church_name,COUNT(*) AS amount FROM `curd` LEFT JOIN church USING (church_id) GROUP BY church_id";
+		$data = $this->db->query($sql);
+        return $data->result();
+
+
+    }
      
 }
  
