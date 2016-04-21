@@ -62,7 +62,7 @@ $(function() {
     var data = [
     <?php foreach ($amountbychurch as $value) { ?>
     {
-        label: "<?php echo $value->church_name==NULL?"ไม่ทราบ":$value->church_name; ?>",
+        label: "<?php echo $value->church_name==NULL?"ไม่ทราบ":$value->church_name." (".$value->amount." คน)"; ?>",
         data: <?php echo $value->amount; ?>
     },
        
@@ -72,7 +72,8 @@ $(function() {
     var plotObj = $.plot($("#flot-pie-chart"), data, {
         series: {
             pie: {
-                show: true
+                show: true,
+                radius: 1
             }
         },
         grid: {
