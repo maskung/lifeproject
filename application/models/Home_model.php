@@ -69,8 +69,13 @@ class Home_model extends CI_Model {
         $sql = "SELECT groups.group_name, groups.topic, COUNT(*) AS amount FROM `curd` LEFT  OUTER JOIN groups ON curd.course_id = groups.group_id GROUP BY groups.group_id";
 		$data = $this->db->query($sql);
         return $data->result();
+    }
 
+    public function countByAll() {
 
+        $sql = "SELECT COUNT(*) AS amount FROM `curd` ";
+		$data = $this->db->query($sql);
+        return $data->row();
     }
 }
  

@@ -29,7 +29,7 @@
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           สัดส่วนผู้ลงทะเบียนเรียนทั้งหมด 
+                        สัดส่วนผู้ลงทะเบียนเรียนทั้งหมดจากจำนวน  <?php echo  $totalamount->amount;  ?>  คน
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -111,7 +111,7 @@ $(function() {
             text: 'กราฟแสดงจำนวนผู้ลงทะเบียนเรียนในแต่ละวิชาในค่าย  Life Sharing'
         },
         subtitle: {
-            text: 'Source: <a href="http://www.churchofcovenant.com/">COC</a>'
+            text: 'จำนวนทั้งหมด <?php echo  $totalamount->amount;  ?>  คน Source: <a href="http://www.churchofcovenant.com/">COC</a>'
         },
         xAxis: {
             type: 'category',
