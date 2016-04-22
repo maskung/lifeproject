@@ -1,9 +1,28 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Flot</h1>
+                    <h1 class="page-header">รายงานการประเมินต่างๆ</h1>
                 </div>
                 <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           จำนวนคนที่ลงทะเบียนเรียนแต่ละรายวิชา
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-bar-chart-hichart"></div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
             <div class="row">
@@ -52,6 +71,9 @@
     <script src="/assets/flot/jquery.flot.time.js"></script>
     <script src="/assets/flot/jquery.flot.tooltip.min.js"></script>
     <!--script src="/assets/js/flot-data.js"></script-->
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
     <script>
 
@@ -122,12 +144,12 @@ $(function() {
     var barData = {
         label: "bar",
         data: [
-            [1354521600000, 1000],
-            [1355040000000, 2000],
-            [1355223600000, 3000],
-            [1355306400000, 4000],
-            [1355487300000, 5000],
-            [1355571900000, 6000]
+            [1, 1000],
+            [2, 2000],
+            [3, 3000],
+            [4, 4000],
+            [5, 5000],
+            [6, 6000]
         ]
     };
     $.plot($("#flot-bar-chart"), [barData], barOptions);
@@ -135,3 +157,66 @@ $(function() {
 });
 
     </script>
+
+    <script>
+
+	$(function () {
+    $('#flot-bar-chart-hichart').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'กราฟแสดงจำวนผู้ลงทะเบียนเรียนในแต่ละวิชาในค่าย  Life Sharing'
+        },
+        subtitle: {
+            text: 'Source: <a href="http://www.churchofcovenant.com/">COC</a>'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'จำนวนผุ้เรียน  (คน) '
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'จำนวนผู้ลงทะเบียน: <b>{point.y:.0f} </b> คน '
+        },
+        series: [{
+            name: 'Population',
+            data: [
+            <?php foreach ($amountbyCourse as $value) { ?>
+            ['<?php echo $value->group_name." ".$value->topic; ?>', <?php echo $value->amount; ?>],
+            <?php  } ?>
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: 0,
+                color: '#FFFFFF',
+                align: 'center',
+                format: '{point.y:.0f}', // one decimal
+                y: 20, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+});
+
+    </script>
+
+
+

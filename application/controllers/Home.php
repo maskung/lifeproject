@@ -106,6 +106,7 @@ class Home extends CI_Controller {
 
 
         $data['amountbychurch'] = $this->home_model->countByChurch(); 
+        $data['amountbyCourse'] = $this->home_model->countByCourse(); 
 
         $this->load->view('header',$data);
         $this->load->view('proportion',$data);
