@@ -32,5 +32,6 @@ class Church extends CI_Model {
 		//return $data->result();
 		return $data->row();
 	}
+
 }
 ?>

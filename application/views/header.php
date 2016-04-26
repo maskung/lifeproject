@@ -199,7 +199,7 @@
                                     <a href="/home/proportion">สัดส่วนผู้เรียน</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Morris.js Charts</a>
+                                    <a href="/home/surveyresult">รายงานผลความพึงพอใจ</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -208,7 +208,7 @@
                             <a href="/home/courselist"><i class="fa fa-table fa-fw"></i> สรุปรายชื่อผู้เข้าเรียน</a>
                         </li>
                         <li>
-                            <a href="/home/servey"><i class="fa fa-edit fa-fw"></i> แบบสำรวจ</a>
+                            <a href="/home/servey"><i class="fa fa-edit fa-fw"></i> แบบสำรวจความพึงพอใจ</a>
                         </li>
                     </ul>
                 </div>

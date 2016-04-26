@@ -22,6 +22,7 @@ class Home extends CI_Controller {
         $this->load->Model('People');
         $this->load->Model('Groups');
         $this->load->Model('Church');
+        $this->load->Model('Survey');
 		
 	}
 	/**
@@ -57,6 +58,15 @@ class Home extends CI_Controller {
         $this->load->view('header',$data);
         $this->load->view('serveyform',$data);
         $this->load->view('footer',$data);
+	}
+
+    /**
+     * servey - show servey form 
+     */
+	public function serveyaction() {
+		$data['title'] = "บันทึกข้อมูลแบบสำรวจ";
+
+		$this->Survey->insert();
 	}
 
     /**
@@ -116,6 +126,27 @@ class Home extends CI_Controller {
 
 
     }
+
+    /**
+     * surveyresult - show  survey result in chart
+     */
+	public function surveyresult() {
+		$data['title'] = "รายงานผลความพึงพอใจ";
+
+
+        $data['amountbychurch'] = $this->home_model->countByChurch(); 
+        $data['amountbysex'] = $this->Survey->countBySex(); 
+        $data['totalamount'] = $this->Survey->countByAll();
+
+        $this->load->view('header',$data);
+        $this->load->view('surveyresult',$data);
+        $this->load->view('footer',$data);
+
+
+
+    }
+
+
 
         public function fillgrid(){
             $this->home_model->fillgrid();

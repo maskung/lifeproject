@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
  
 class Home_model extends CI_Model {
-     
+    
     public function fillgrid(){
 		//$array = array('created >=' => $startdate+$interval, 'created <=' => $enddate+$interval, 'email' => $this->session->userdata('groupname'));
 		//$this->db->where($array); 
@@ -28,6 +28,12 @@ class Home_model extends CI_Model {
     }
  
     public function create(){
+
+		$this->db->select('*')->from('curd')->where(email, $this->session->userdata('groupname')); 
+		$q = $this->db->get(); 
+		$amount = $q->num_rows();
+
+
         $data = array('name'=>  $this->input->post('name'),
                 'email'=>$this->input->post('email'),
                 'contact'=> '',
@@ -35,8 +41,16 @@ class Home_model extends CI_Model {
                 'course_id'=>$this->input->post('courseid'),
                 'church_id'=>$this->input->post('church'),
                 'created'=>date('Y-m-d'));
-            $this->db->insert('curd', $data);
-            echo'<div class="alert alert-success">ข้อมูลถูกบันทึกเรียบร้อยแล้ว</div>';
+
+
+
+			if ($amount < 20 || $this->session->userdata('course_id') == 8) { 
+				$this->db->insert('curd', $data);
+				echo'<div class="alert alert-success">ข้อมูลถูกบันทึกเรียบร้อยแล้ว</div>';
+			} else {
+				echo'<div class="alert alert-danger">ห้องเรียนนี้เต็มแล้ว</div>';
+			}
+
             exit;
     }
 
