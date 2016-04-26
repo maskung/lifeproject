@@ -134,7 +134,33 @@ class Home extends CI_Controller {
 		$data['title'] = "รายงานผลความพึงพอใจ";
 
 
-        $data['amountbychurch'] = $this->home_model->countByChurch(); 
+        $allsurveys = $this->Survey->getSurveys();
+        //do_dump($allsurveys,'allsurveys');
+
+        $rank = array(
+
+            1 => array(0,0,0,0,0,0,0,0,0,0,0),
+            2 => array(0,0,0,0,0,0,0,0,0,0,0),
+            3 => array(0,0,0,0,0,0,0,0,0,0,0),
+            4 => array(0,0,0,0,0,0,0,0,0,0,0),
+            5 => array(0,0,0,0,0,0,0,0,0,0,0),
+        );
+    
+        foreach ($allsurveys as  $survey) {
+            
+            $i = 1;
+            $survey->q1==1?$rank[1][$i]++:$rank[1][$i];
+            $survey->q1==2?$rank[2][$i]++:$rank[2][$i];
+            $survey->q1==3?$rank[3][$i]++:$rank[3][$i];
+            $survey->q1==4?$rank[4][$i]++:$rank[4][$i];
+            $survey->q1==5?$rank[5][$i]++:$rank[5][$i];
+
+
+        }
+
+        //do_dump($rank,'rank');
+
+
         $data['amountbysex'] = $this->Survey->countBySex(); 
         $data['totalamount'] = $this->Survey->countByAll();
 

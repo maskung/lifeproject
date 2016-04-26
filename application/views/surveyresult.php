@@ -148,61 +148,6 @@ $(function () {
 });	
 
 
-	$(function () {
-    $('#flot-bar-chart-hichart-old').highcharts({
-        chart: {
-            type: 'column'
-        },
-        title: {
-            text: 'กราฟแสดงจำนวนผู้ลงทะเบียนเรียนในแต่ละวิชาในค่าย  Life Sharing'
-        },
-        subtitle: {
-            text: 'จำนวนทั้งหมด <?php echo  $totalamount->amount;  ?>  คน Source: <a href="http://www.churchofcovenant.com/">COC</a>'
-        },
-        xAxis: {
-            type: 'category',
-            labels: {
-                rotation: -45,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
-                }
-            }
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'จำนวนผุ้เรียน  (คน) '
-            }
-        },
-        legend: {
-            enabled: false
-        },
-        tooltip: {
-            pointFormat: 'จำนวนผู้ลงทะเบียน: <b>{point.y:.0f} </b> คน '
-        },
-        series: [{
-            name: 'Population',
-            data: [
-            <?php foreach ($amountbyCourse as $value) { ?>
-            ['<?php echo $value->group_name." ".$value->topic; ?>', <?php echo $value->amount; ?>],
-            <?php  } ?>
-            ],
-            dataLabels: {
-                enabled: true,
-                rotation: 0,
-                color: '#FFFFFF',
-                align: 'center',
-                format: '{point.y:.0f}', // one decimal
-                y: 20, // 10 pixels down from the top
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
-                }
-            }
-        }]
-    });
-});
 
     </script>
 
