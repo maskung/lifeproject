@@ -168,10 +168,21 @@ class Home extends CI_Controller {
 
         }
 
+
+        $totalamount = $this->Survey->countByAll();
+
+        //find average love
+        $love = array();
+        for ($i = 1; $i <= 10; $i++) {
+            $love[$i] = ($ranks[5][$i]*5 + $ranks[4][$i]*4 + $ranks[3][$i]*3 + $ranks[2][$i]*2 + $ranks[1][$i]*1)/$totalamount->amount;
+            
+        }
+
         $data['ranks'] = $ranks;
+        $data['love'] = $love;
         $data['amountbysex'] = $this->Survey->countBySex(); 
         $data['amountbyarea'] = $this->Survey->countByArea(); 
-        $data['totalamount'] = $this->Survey->countByAll();
+        $data['totalamount'] = $totalamount;
 
         $this->load->view('header',$data);
         $this->load->view('surveyresult',$data);

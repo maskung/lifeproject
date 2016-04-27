@@ -22,9 +22,27 @@
                     </div>
                     <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-6 -->
+                <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                           รายงานคะแนนเฉลี่ยความพึงพอใจ 
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-bar-chart-xbar"></div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="panel panel-default">
@@ -157,10 +175,6 @@ $(function() {
 
 });
 
-    </script>
-
-    <script>
-
 $(function () {
     $('#flot-bar-chart-hichart').highcharts({
         chart: {
@@ -175,7 +189,7 @@ $(function () {
         yAxis: {
             min: 0,
             title: {
-                text: 'ผลรวมคะแนนความพึวพอใจ'
+                text: 'ผลรวมคะแนนความพึงพอใจในกิจกรรม Life Sharing'
             }
         },
         tooltip: {
@@ -226,6 +240,69 @@ $(function () {
     });
 });	
 
+
+$(function () {
+    $('#flot-bar-chart-xbar').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'ค่าเฉลี่ยความพึงพอใจในกิจกรรม Life Sharing'
+        },
+        subtitle: {
+            text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'ค่าเฉลี่ยความพึงพอใจ (X)'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'คะแนนเฉลี่ยความพึงพอใจ: <b>{point.y:.1f} millions</b>'
+        },
+        series: [{
+            name: 'Population',
+            data: [
+            ['ผู้นำ life sharing', <?php echo $love[1]; ?>],
+            ['เนื้อหาบทเรียน life sharing',<?php echo $love[2]; ?>],
+            ['บรรยากาศโดยรวม life sharing', <?php echo $love[3]; ?>],
+            ['ความพร้อมของสถานที่เรียน', <?php echo $love[4]; ?>],
+            ['ความสะดวกในการสมัครเรียน ลงทะเบียน', <?php echo $love[5]; ?>],
+            ['เวลาการเข้ากลุ่มเหมาะสม', <?php echo $love[6]; ?>],
+            ['ท่านได้มีบทบาทในการแบ่งปันกลุ่ม', <?php echo $love[7]; ?>],
+            ['การประชาสัมพันธ์', <?php echo $love[8]; ?>],
+            ['ท่านได้รับประโยชน์จากการเข้ากลุ่ม', <?php echo $love[9]; ?>],
+            ['ควรมีการจัด life sharing ครั้งต่อไป', <?php echo $love[10]; ?>],
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.1f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+});
 
 
     </script>
