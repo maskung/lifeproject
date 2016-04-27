@@ -208,7 +208,7 @@
                             <a href="/home/courselist"><i class="fa fa-table fa-fw"></i> สรุปรายชื่อผู้เข้าเรียน</a>
                         </li>
                         <li>
-                            <a href="/home/servey"><i class="fa fa-edit fa-fw"></i> แบบสำรวจความพึงพอใจ</a>
+                            <a href="/home/survey"><i class="fa fa-edit fa-fw"></i> แบบสำรวจความพึงพอใจ</a>
                         </li>
                     </ul>
                 </div>

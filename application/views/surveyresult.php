@@ -130,19 +130,39 @@ $(function () {
         },
         series: [{
             name: 'มากที่สุด',
-            data: [5, 3, 4, 7, 2, 1, 4, 5, 6, 8]
+                data: [
+                <?php foreach ($ranks[5] as $rank) { 
+                    echo $rank.",";
+                } ?>
+                ]
         }, {
             name: 'มาก',
-            data: [2, 2, 3, 2, 1, 2, 1, 1, 5, 6]
+                data: [
+                <?php foreach ($ranks[4] as $rank) { 
+                    echo $rank.",";
+                } ?>
+                ]
         }, {
             name: 'ปานกลาง',
-            data: [3, 4, 4, 2, 5, 3, 1,3 , 5, 6]
+                data: [
+                <?php foreach ($ranks[3] as $rank) { 
+                    echo $rank.",";
+                } ?>
+                ]
         }, {
             name: 'น้อย',
-            data: [3, 4, 4, 2, 5, 3, 2, 1, 4, 6]
+                data: [
+                <?php foreach ($ranks[2] as $rank) { 
+                    echo $rank.",";
+                } ?>
+                ]
         }, {
             name: 'นอยที่สุด',
-            data: [3, 4, 4, 2, 5, 3, 1, 4, 4, 8]
+                data: [
+                <?php foreach ($ranks[1] as $rank) { 
+                    echo $rank.",";
+                } ?>
+                ]
         }]
     });
 });	

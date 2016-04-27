@@ -52,7 +52,7 @@ class Home extends CI_Controller {
     /**
      * servey - show servey form 
      */
-	public function servey() {
+	public function survey() {
 		$data['title'] = "สำรวจความพึงพอใจ";
 
         $this->load->view('header',$data);
@@ -67,6 +67,11 @@ class Home extends CI_Controller {
 		$data['title'] = "บันทึกข้อมูลแบบสำรวจ";
 
 		$this->Survey->insert();
+
+        $this->load->view('header',$data);
+        $this->load->view('surveysuccess',$data);
+        $this->load->view('footer',$data);
+
 	}
 
     /**
@@ -133,11 +138,11 @@ class Home extends CI_Controller {
 	public function surveyresult() {
 		$data['title'] = "รายงานผลความพึงพอใจ";
 
-
+        // get raw survey data
         $allsurveys = $this->Survey->getSurveys();
         //do_dump($allsurveys,'allsurveys');
 
-        $rank = array(
+        $ranks = array(
 
             1 => array(0,0,0,0,0,0,0,0,0,0,0),
             2 => array(0,0,0,0,0,0,0,0,0,0,0),
@@ -145,22 +150,28 @@ class Home extends CI_Controller {
             4 => array(0,0,0,0,0,0,0,0,0,0,0),
             5 => array(0,0,0,0,0,0,0,0,0,0,0),
         );
-    
+
+        // remove the 0 element off
+        unset($ranks[1][0]);
+        unset($ranks[2][0]);
+        unset($ranks[3][0]);
+        unset($ranks[4][0]);
+        unset($ranks[5][0]);
+
+        // re-arrange the data for chart 
         foreach ($allsurveys as  $survey) {
             
-            $i = 1;
-            $survey->q1==1?$rank[1][$i]++:$rank[1][$i];
-            $survey->q1==2?$rank[2][$i]++:$rank[2][$i];
-            $survey->q1==3?$rank[3][$i]++:$rank[3][$i];
-            $survey->q1==4?$rank[4][$i]++:$rank[4][$i];
-            $survey->q1==5?$rank[5][$i]++:$rank[5][$i];
-
+            for ($i=1; $i <= 10; $i++) {
+                $survey->{'q'.$i}==1?$ranks[1][$i]++:$ranks[1][$i];
+                $survey->{'q'.$i}==2?$ranks[2][$i]++:$ranks[2][$i];
+                $survey->{'q'.$i}==3?$ranks[3][$i]++:$ranks[3][$i];
+                $survey->{'q'.$i}==4?$ranks[4][$i]++:$ranks[4][$i];
+                $survey->{'q'.$i}==5?$ranks[5][$i]++:$ranks[5][$i];
+            }
 
         }
 
-        //do_dump($rank,'rank');
-
-
+        $data['ranks'] = $ranks;
         $data['amountbysex'] = $this->Survey->countBySex(); 
         $data['totalamount'] = $this->Survey->countByAll();
 

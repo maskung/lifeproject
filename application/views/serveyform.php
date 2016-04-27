@@ -59,13 +59,13 @@
                                                 <input type="radio" name="q1" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q1" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q1" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q1" id="role" value="4">น้อย
+                                                <input type="radio" name="q1" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q1" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q1" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
                                         
@@ -78,13 +78,13 @@
                                                 <input type="radio" name="q2" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q2" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q2" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q2" id="role" value="4">น้อย
+                                                <input type="radio" name="q2" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q2" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q2" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
@@ -97,13 +97,13 @@
                                                 <input type="radio" name="q3" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q3" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q3" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q3" id="role" value="4">น้อย
+                                                <input type="radio" name="q3" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q3" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q3" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
@@ -116,13 +116,13 @@
                                                 <input type="radio" name="q4" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q4" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q4" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q4" id="role" value="4">น้อย
+                                                <input type="radio" name="q4" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q4" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q4" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
@@ -135,13 +135,13 @@
                                                 <input type="radio" name="q5" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q5" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q5" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q5" id="role" value="4">น้อย
+                                                <input type="radio" name="q5" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q5" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q5" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
@@ -154,13 +154,13 @@
                                                 <input type="radio" name="q6" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q6" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q6" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q6" id="role" value="4">น้อย
+                                                <input type="radio" name="q6" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q6" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q6" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
@@ -173,13 +173,13 @@
                                                 <input type="radio" name="q7" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q7" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q7" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q7" id="role" value="4">น้อย
+                                                <input type="radio" name="q7" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q7" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q7" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
@@ -192,13 +192,13 @@
                                                 <input type="radio" name="q8" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q8" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q8" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q8" id="role" value="4">น้อย
+                                                <input type="radio" name="q8" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q8" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q8" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
@@ -211,13 +211,13 @@
                                                 <input type="radio" name="q9" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q9" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q9" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q9" id="role" value="4">น้อย
+                                                <input type="radio" name="q9" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q9" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q9" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
@@ -230,13 +230,13 @@
                                                 <input type="radio" name="q10" id="role" value="4">มาก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q10" id="role" value="4">ปานกลาง
+                                                <input type="radio" name="q10" id="role" value="3">ปานกลาง
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q10" id="role" value="4">น้อย
+                                                <input type="radio" name="q10" id="role" value="2">น้อย
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="q10" id="role" value="4">น้อยที่สุด
+                                                <input type="radio" name="q10" id="role" value="1">น้อยที่สุด
                                             </label>
                                         </div>
 
