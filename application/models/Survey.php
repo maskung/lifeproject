@@ -65,6 +65,16 @@ class Survey extends CI_Model {
 		$data = $this->db->query($sql);
         return $data->result();
 	}
+
+	/***
+	 * find amount of people survey group by area
+	 */ 
+    function countByArea() {
+
+        $sql = "SELECT church, COUNT(*) AS amount FROM `survey` GROUP BY church";
+		$data = $this->db->query($sql);
+        return $data->result();
+	}
 	
 	/***
 	 * find  all people who subit survey

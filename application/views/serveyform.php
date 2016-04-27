@@ -36,7 +36,7 @@
                                                 <input type="radio" name="church" id="church" value="2">รอบนอก
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="often" id="church" value="3">ต่างจังหวัด
+                                                <input type="radio" name="church" id="church" value="3">ต่างจังหวัด
                                             </label>
                                         </div>
                                         <div class="form-group">

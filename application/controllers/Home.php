@@ -127,9 +127,6 @@ class Home extends CI_Controller {
         $this->load->view('header',$data);
         $this->load->view('proportion',$data);
         $this->load->view('footer',$data);
-
-
-
     }
 
     /**
@@ -173,6 +170,7 @@ class Home extends CI_Controller {
 
         $data['ranks'] = $ranks;
         $data['amountbysex'] = $this->Survey->countBySex(); 
+        $data['amountbyarea'] = $this->Survey->countByArea(); 
         $data['totalamount'] = $this->Survey->countByAll();
 
         $this->load->view('header',$data);

@@ -42,6 +42,22 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        สัดส่วนผู้ทำแบบสอบแบ่งตามเพื้นที่งหมดจากจำนวน  <?php echo  $totalamount->amount;  ?>  คน
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="flot-pie-chart-area"></div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-6 -->
             </div>
             <!-- /.row -->
         </div>
@@ -76,6 +92,49 @@ $(function() {
     ];
 
     var plotObj = $.plot($("#flot-pie-chart"), data, {
+        series: {
+            pie: {
+                show: true,
+                radius: 1
+            }
+        },
+        grid: {
+            hoverable: true
+        },
+        tooltip: true,
+        tooltipOpts: {
+            content: "%p.0%, %s", // show percentages, rounding to 2 decimal places
+            shifts: {
+                x: 20,
+                y: 0
+            },
+            defaultTheme: false
+        }
+    });
+
+});
+
+//Flot Pie Chart
+$(function() {
+
+    var data = [
+    <?php foreach ($amountbyarea as $value) { ?>
+    {
+        label: "<?php if ($value->church==1) { 
+            echo "กรุงเทพฯ"." (".$value->amount." คน)";
+        } else if ($value->church==2) {
+            echo "รอบนอก"." (".$value->amount." คน)";
+        } else {
+            echo "ต่างจังหวัด"." (".$value->amount." คน)";
+        }
+        ?> ",
+        data: <?php echo $value->amount; ?>
+    },
+       
+    <?php } ?>
+    ];
+
+    var plotObj = $.plot($("#flot-pie-chart-area"), data, {
         series: {
             pie: {
                 show: true,
