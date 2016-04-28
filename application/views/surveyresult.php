@@ -329,6 +329,13 @@ $(function () {
             'ท่านได้รับประโยชน์จากการเข้ากลุ่ม',
             'ควรมีการจัด life sharing ครั้งต่อไป',
             ],
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            },
             crosshair: true
         }],
         yAxis: [{ // Primary yAxis
@@ -336,7 +343,8 @@ $(function () {
                 format: '{value}',
                 style: {
                     color: Highcharts.getOptions().colors[0]
-                }
+                },
+                step: 1,
             },
             title: {
                 text: 'ความพึงพอใจ',
@@ -367,7 +375,7 @@ $(function () {
             align: 'left',
             x: 120,
             verticalAlign: 'top',
-            y: 50,
+            y: 20,
             floating: true,
             backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
         },
