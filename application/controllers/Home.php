@@ -173,13 +173,23 @@ class Home extends CI_Controller {
 
         //find average love
         $love = array();
+        $sd = array();
         for ($i = 1; $i <= 10; $i++) {
-            $love[$i] = ($ranks[5][$i]*5 + $ranks[4][$i]*4 + $ranks[3][$i]*3 + $ranks[2][$i]*2 + $ranks[1][$i]*1)/$totalamount->amount;
+
+            $x = ($ranks[5][$i]*5 + $ranks[4][$i]*4 + $ranks[3][$i]*3 + $ranks[2][$i]*2 + $ranks[1][$i]*1);
+            $xbar = $x/$totalamount->amount;
+
+            $sd[$i] = number_format(sqrt(($ranks[5][$i]*25 + $ranks[4][$i]*16 + $ranks[3][$i]*9 + $ranks[2][$i]*4 + $ranks[1][$i]*1)/$totalamount->amount - pow($xbar,2)),2,'.',''); 
+
+            $love[$i] =  $xbar;
             
         }
 
+        //find standard deviation
+
         $data['ranks'] = $ranks;
         $data['love'] = $love;
+        $data['sd'] = $sd; 
         $data['amountbysex'] = $this->Survey->countBySex(); 
         $data['amountbyarea'] = $this->Survey->countByArea(); 
         $data['totalamount'] = $totalamount;

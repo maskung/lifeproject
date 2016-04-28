@@ -250,7 +250,7 @@ $(function () {
             text: 'ค่าเฉลี่ยความพึงพอใจในกิจกรรม Life Sharing'
         },
         subtitle: {
-            text: 'Source: <a href="http://en.wikipedia.org/wiki/List_of_cities_proper_by_population">Wikipedia</a>'
+            text: 'Source: <a href="http://www.churchofcovenant.com/">COC</a>'
         },
         xAxis: {
             type: 'category',
@@ -272,7 +272,7 @@ $(function () {
             enabled: false
         },
         tooltip: {
-            pointFormat: 'คะแนนเฉลี่ยความพึงพอใจ: <b>{point.y:.1f} millions</b>'
+            pointFormat: 'คะแนนเฉลี่ยความพึงพอใจ: <b>{point.y:.1f} </b>'
         },
         series: [{
             name: 'Population',
