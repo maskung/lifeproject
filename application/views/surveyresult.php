@@ -241,7 +241,7 @@ $(function () {
 });	
 
 
-$(function () {
+/*$(function () {
     $('#flot-bar-chart-xbar').highcharts({
         chart: {
             type: 'column'
@@ -272,7 +272,7 @@ $(function () {
             enabled: false
         },
         tooltip: {
-            pointFormat: 'คะแนนเฉลี่ยความพึงพอใจ: <b>{point.y:.1f} </b>'
+            pointFormat: 'คะแนนเฉลี่ยความพึงพอใจ: <b>{point.y:.1f} s</b>'
         },
         series: [{
             name: 'Population',
@@ -302,9 +302,90 @@ $(function () {
             }
         }]
     });
+}); 
+ */
+
+$(function () {
+    $('#flot-bar-chart-xbar').highcharts({
+        chart: {
+            zoomType: 'xy'
+        },
+        title: {
+            text: 'ค่าเฉลี่ยความพึงพอใจในกิจกรรม Life Sharing'
+        },
+        subtitle: {
+            text: 'Source: <a href="http://www.churchofcovenant.com/">COC</a>'
+        },
+        xAxis: [{
+            categories: [
+            'ผู้นำ life sharing',
+            'เนื้อหาบทเรียน life sharing',
+            'บรรยากาศโดยรวม life sharing',
+            'ความพร้อมของสถานที่เรียน',
+            'ความสะดวกในการสมัครเรียน ลงทะเบียน',
+            'เวลาการเข้ากลุ่มเหมาะสม',
+            'ท่านได้มีบทบาทในการแบ่งปันกลุ่ม',
+            'การประชาสัมพันธ์',
+            'ท่านได้รับประโยชน์จากการเข้ากลุ่ม',
+            'ควรมีการจัด life sharing ครั้งต่อไป',
+            ],
+            crosshair: true
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            title: {
+                text: 'ความพึงพอใจ',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: 'ค่าเบี่ยงเบนมาตรฐาน',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            labels: {
+                format: '{value} ',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            opposite: true
+        }],
+        tooltip: {
+            shared: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 50,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        series: [{
+            name: 'ค่าเฉลี่ยความพึงพอใจ',
+            type: 'column',
+            yAxis: 0,
+            
+            data: [3.8, 4, 3.8, 3.8, 4.1, 4.3, 4.1, 3.8, 3.6, 4],
+
+        }, {
+            name: 'ค่าเบี่ยงเบนมาตรฐาน',
+            type: 'spline',
+            yAxis: 1,
+            data: [1.3, 1, 0.9, 1, 1, 0.7, 0.5, 0.7, 1, 1.4],
+        }]
+    });
 });
-
-
     </script>
 
 

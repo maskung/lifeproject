@@ -185,6 +185,8 @@ class Home extends CI_Controller {
             
         }
 
+        //do_dump($love,'love');
+        //do_dump($sd,'sd');
         //find standard deviation
 
         $data['ranks'] = $ranks;
