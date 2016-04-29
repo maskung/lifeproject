@@ -17,6 +17,9 @@
     <!-- MetisMenu CSS -->
     <link href="/assets/css/metisMenu.min.css" rel="stylesheet">
 
+    <!-- Timeline CSS -->
+    <link href="/assets/css/timeline.css" rel="stylesheet">
+
     <!-- Custom CSS -->
     <link href="/assets/css/sb-admin-2.css" rel="stylesheet">
 

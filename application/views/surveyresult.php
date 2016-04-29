@@ -77,6 +77,38 @@
                 </div>
                 <!-- /.col-lg-6 -->
             </div>
+            <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-clock-o fa-fw"></i> ข้อเสนอแนะเพิ่มเติม
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <ul class="timeline">
+                                <?php $i = 1; ?>
+                                <?php foreach ($suggests as $suggest) { ?>
+                                    <li class="<?php if ($suggest->sex==2) { echo "timeline-inverted"; } ?>" >
+                                    <div class="timeline-badge"><i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="timeline-panel">
+                                        <div class="timeline-heading">
+                                        <h4 class="timeline-title">ความเห็นที่ <?php echo $i; ?> </h4>
+                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> <?php echo $suggest->date_added; ?></small>
+                                            </p>
+                                        </div>
+                                        <div class="timeline-body">
+                                        <p><?php echo $suggest->suggest; ?></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php   $i++; 
+                                        } ?>
+                            </ul>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->       <!-- /.row -->
+            </div>
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
@@ -344,14 +376,13 @@ $(function () {
                 style: {
                     color: Highcharts.getOptions().colors[0]
                 },
-                step: 1,
             },
             title: {
                 text: 'ความพึงพอใจ',
                 style: {
                     color: Highcharts.getOptions().colors[0]
                 }
-            }
+            },
         }, { // Secondary yAxis
             title: {
                 text: 'ค่าเบี่ยงเบนมาตรฐาน',

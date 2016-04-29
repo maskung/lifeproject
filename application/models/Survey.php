@@ -85,5 +85,16 @@ class Survey extends CI_Model {
 		$data = $this->db->query($sql);
         return $data->row();
 	}
+
+	/***
+	 * find all comments 
+	 */ 
+    function getAllComments() {
+
+        $sql = "SELECT survey_id, sex, church, suggest, date_added  FROM `survey` WHERE suggest <> '' ";
+		$data = $this->db->query($sql);
+        return $data->result();
+	}
+
 }
 ?>

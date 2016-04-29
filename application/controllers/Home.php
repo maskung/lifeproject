@@ -195,6 +195,7 @@ class Home extends CI_Controller {
         $data['amountbysex'] = $this->Survey->countBySex(); 
         $data['amountbyarea'] = $this->Survey->countByArea(); 
         $data['totalamount'] = $totalamount;
+        $data['suggests'] = $this->Survey->getAllComments();
 
         $this->load->view('header',$data);
         $this->load->view('surveyresult',$data);
