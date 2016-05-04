@@ -40,7 +40,7 @@
                                             </label>
                                         </div>
                                         <div class="form-group">
-                                            <label>1.2 บทบาท</label><br />
+                                            <label>1.3 บทบาท</label><br />
                                             <label class="radio-inline">
                                                 <input type="radio" name="role" id="role" value="1">ผู้นำ
                                             </label>
