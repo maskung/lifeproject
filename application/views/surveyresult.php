@@ -88,7 +88,7 @@
                                 <?php $i = 1; ?>
                                 <?php foreach ($suggests as $suggest) { ?>
                                     <li class="<?php if ($suggest->sex==2) { echo "timeline-inverted"; } ?>" >
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
+                                    <div class="timeline-badge"><i class="fa <?php if ($suggest->sex==1) echo 'fa-male'; else echo 'fa-female'; ?>"></i>
                                     </div>
                                     <div class="timeline-panel">
                                         <div class="timeline-heading">
