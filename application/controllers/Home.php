@@ -55,8 +55,11 @@ class Home extends CI_Controller {
 	public function survey() {
 		$data['title'] = "สำรวจความพึงพอใจ";
 
+        //get all groups
+        $data['allgroups'] = $this->Groups->getGroups(); 
+
         $this->load->view('header',$data);
-        $this->load->view('serveyform',$data);
+        $this->load->view('surveyform',$data);
         $this->load->view('footer',$data);
 	}
 

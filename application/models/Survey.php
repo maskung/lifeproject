@@ -40,6 +40,7 @@ class Survey extends CI_Model {
 		$data = array('sex'=>  $this->input->post('sex'),
 					  'church'=>$this->input->post('church'),
 					  'role'=>$this->input->post('role'),
+					  'class'=>$this->input->post('class'),
 					  'q1'=>$this->input->post('q1'),
 					  'q2'=>$this->input->post('q2'),
 					  'q3'=>$this->input->post('q3'),

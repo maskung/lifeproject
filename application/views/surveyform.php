@@ -40,13 +40,22 @@
                                             </label>
                                         </div>
                                         <div class="form-group">
-                                            <label>1.2 บทบาท</label><br />
+                                            <label>1.3 บทบาท</label><br />
                                             <label class="radio-inline">
                                                 <input type="radio" name="role" id="role" value="1">ผู้นำ
                                             </label>
                                             <label class="radio-inline">
                                                 <input type="radio" name="role" id="role" value="2">สมาชิก
                                             </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>1.4 ชั้นเรียน</label>
+                                            <select class="form-control" name="class">
+                                                <option value="0">ไม่ระบุ</option>
+                                                <?php foreach($allgroups as $group) { ?> 
+                                                <option value="<?php echo $group->group_id; ?>"><?php echo $group->group_name." ".$group->topic; ?></option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
 										<br >
 										<h4>ตอนที่ 2 รายการประเมินความพึงพอใจ</h4>
