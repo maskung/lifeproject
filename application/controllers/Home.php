@@ -23,6 +23,7 @@ class Home extends CI_Controller {
         $this->load->Model('Groups');
         $this->load->Model('Church');
         $this->load->Model('Survey');
+        $this->load->Model('Surveycare');
 		
 	}
 	/**
@@ -73,6 +74,34 @@ class Home extends CI_Controller {
 
         $this->load->view('header',$data);
         $this->load->view('surveysuccess',$data);
+        $this->load->view('footer',$data);
+
+	}
+
+    /**
+     * serveycare - show servey form 
+     */
+	public function surveycare() {
+		$data['title'] = "สำรวจความพึงพอใจ";
+
+        //get all groups
+        $data['allgroups'] = $this->Groups->getGroups(); 
+
+        $this->load->view('header',$data);
+        $this->load->view('surveycareform',$data);
+        $this->load->view('footer',$data);
+	}
+
+    /**
+     * servey - show servey form 
+     */
+	public function serveycareaction() {
+		$data['title'] = "บันทึกข้อมูลแบบสำรวจ";
+
+		$this->Surveycare->insert();
+
+        $this->load->view('header',$data);
+        $this->load->view('surveycaresuccess',$data);
         $this->load->view('footer',$data);
 
 	}
@@ -202,6 +231,82 @@ class Home extends CI_Controller {
 
         $this->load->view('header',$data);
         $this->load->view('surveyresult',$data);
+        $this->load->view('footer',$data);
+
+
+
+    }
+
+    /**
+     * surveycareresult - show  survey care result in chart
+     */
+	public function surveycareresult() {
+		$data['title'] = "รายงานผลความพึงพอใจ";
+
+        // get raw survey data
+        $allsurveys = $this->Surveycare->getSurveys();
+        //do_dump($allsurveys,'allsurveys');
+
+        $ranks = array(
+
+            1 => array(0,0,0,0,0,0,0,0,0,0,0),
+            2 => array(0,0,0,0,0,0,0,0,0,0,0),
+            3 => array(0,0,0,0,0,0,0,0,0,0,0),
+            4 => array(0,0,0,0,0,0,0,0,0,0,0),
+            5 => array(0,0,0,0,0,0,0,0,0,0,0),
+        );
+
+        // remove the 0 element off
+        unset($ranks[1][0]);
+        unset($ranks[2][0]);
+        unset($ranks[3][0]);
+        unset($ranks[4][0]);
+        unset($ranks[5][0]);
+
+        // re-arrange the data for chart 
+        foreach ($allsurveys as  $survey) {
+            
+            for ($i=1; $i <= 10; $i++) {
+                $survey->{'q'.$i}==1?$ranks[1][$i]++:$ranks[1][$i];
+                $survey->{'q'.$i}==2?$ranks[2][$i]++:$ranks[2][$i];
+                $survey->{'q'.$i}==3?$ranks[3][$i]++:$ranks[3][$i];
+                $survey->{'q'.$i}==4?$ranks[4][$i]++:$ranks[4][$i];
+                $survey->{'q'.$i}==5?$ranks[5][$i]++:$ranks[5][$i];
+            }
+
+        }
+
+
+        $totalamount = $this->Surveycare->countByAll();
+
+        //find average love
+        $love = array();
+        $sd = array();
+        for ($i = 1; $i <= 10; $i++) {
+
+            $x = ($ranks[5][$i]*5 + $ranks[4][$i]*4 + $ranks[3][$i]*3 + $ranks[2][$i]*2 + $ranks[1][$i]*1);
+            $xbar = $x/$totalamount->amount;
+
+            $sd[$i] = number_format(sqrt(($ranks[5][$i]*25 + $ranks[4][$i]*16 + $ranks[3][$i]*9 + $ranks[2][$i]*4 + $ranks[1][$i]*1)/$totalamount->amount - pow($xbar,2)),2,'.',''); 
+
+            $love[$i] =  $xbar;
+            
+        }
+
+        //do_dump($love,'love');
+        //do_dump($sd,'sd');
+        //find standard deviation
+
+        $data['ranks'] = $ranks;
+        $data['love'] = $love;
+        $data['sd'] = $sd; 
+        $data['amountbysex'] = $this->Surveycare->countBySex(); 
+        $data['amountbyarea'] = $this->Surveycare->countByArea(); 
+        $data['totalamount'] = $totalamount;
+        $data['suggests'] = $this->Surveycare->getAllComments();
+
+        $this->load->view('header',$data);
+        $this->load->view('surveycareresult',$data);
         $this->load->view('footer',$data);
 
 

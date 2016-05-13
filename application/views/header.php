@@ -204,6 +204,9 @@
                                 <li>
                                     <a href="/home/surveyresult">รายงานผลความพึงพอใจ</a>
                                 </li>
+                                <li>
+                                    <a href="/home/surveycareresult">รายงานผลความพึงพอใจในแคร์</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -212,6 +215,9 @@
                         </li>
                         <li>
                             <a href="/home/survey"><i class="fa fa-edit fa-fw"></i> แบบสำรวจความพึงพอใจ</a>
+                        </li>
+                        <li>
+                            <a href="/home/surveycare"><i class="fa fa-edit fa-fw"></i>แบบสำรวจความพึงพอใจในแคร์</a>
                         </li>
                     </ul>
                 </div>
