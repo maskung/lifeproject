@@ -82,7 +82,7 @@ class Home extends CI_Controller {
      * serveycare - show servey form 
      */
 	public function surveycare() {
-		$data['title'] = "สำรวจความพึงพอใจ";
+		$data['title'] = "สำรวจความพึงพอใจกลุ่มแคร์ออนไลน์";
 
         //get all groups
         $data['allgroups'] = $this->Groups->getGroups(); 
