@@ -24,8 +24,12 @@ class Home extends CI_Controller {
         $this->load->Model('Church');
         $this->load->Model('Survey');
         $this->load->Model('Surveycare');
+        $this->load->Model('Mission');
+        $this->load->Model('Cclass');
+        $this->load->Model('Student_class');
 		
 	}
+
 	/**
  	 * index page show on default
      */
@@ -373,6 +377,77 @@ class Home extends CI_Controller {
             exit;
         }
 
-         
+	/**
+ 	 * index page show on default
+     */
+	public function cclass() {
+		$data['title'] = "ลงทะเบียนผุ้เรียนซีคลาส";
+
+        $data['missions'] = $this->Mission->getMissions();
+        $data['classes'] = $this->Cclass->getClasses();
+
+		//count amount of people who register this subject
+
+        $this->load->view('cclassform',$data);
+        
+	}
+
+    /***
+     * c-clcass resiter
+     */
+        public function  cregist() {
+
+            $this->Student_class->create();
+
+            redirect('/home/cregist_success'); 
+            
+        }
+
+    /***
+     * c-clcass resiter
+     */
+        public function  cregist_success() {
+
+            $this->load->view('cclasssuccess',$data);
+        
+
+        }
+
+    /**
+     * cclasslist - show list of student in multi table
+     */
+	public function cclasslist() {
+		$data['title'] = "รายชื่อนักเรียน";
+
+        //get all groups
+        $allgroups = $this->Cclass->getClasses();
+
+        // add to student to courses
+        $allcourse = array();
+        
+        foreach ($allgroups as $group) {
+            $allcourse[$group->class_id] = array('course_name' => $group->class_name,
+                                                 'class_id' => $group->class_id,
+                                                 'students' => array()
+                    );
+        }
+        
+
+        $allstudents = $this->Student_class->getAllStudent(); 
+
+        foreach ($allstudents as $student) {
+            $allcourse[$student->class_id]['students'][] = $student;
+        }
+
+        //do_dump($allstudents,'allstudents');
+
+        //do_dump($allcourse,'allcourse');
+
+        $data['allcourses'] = $allcourse;
+
+        $this->load->view('header',$data);
+        $this->load->view('cclasslist',$data);
+        $this->load->view('footer',$data);
+	}
        			
 }
